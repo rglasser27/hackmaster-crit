@@ -1,0 +1,34 @@
+Answer Key
+Symbol,meaning
+numeral X,extra damage of dX type
+xX,X times the damage
+ls,limb severed; (unless finger or toes) bleed to death in Con/2 rounds
+f,fall prone and drop items
+aX,-X to-hit
+sX,reduce Strength by X
+dX,reduce Dexterity by X
+w,drops carried weapons or items
+ws,drops carried weapons or items unless check at 1/2 Strength is made
+p,5% x severity level chance of paralysis
+pb,bleed to death in Con/2 rounds
+ib,1d4 damage/hour; Con check or shock
+hX,loss of X Honor
+mtX,"if arm:(drops carried weapons or items unless check at 1/2 Strength is made); otherwise: (3% x severity level of bleeding to death in Con/2 rounds)"
+u,unconscious
+m1,"50% move for 1 round, 10% for 2d4 rounds"
+m2,"50% move for 2 rounds, 25% for 2d10 rounds"
+m3,"50% move for 1 round, 10% for 2d4 rounds, then 25% for 1d6 turns"
+m4,50% move for 1d12 hours
+m5,"50% move for 1d12 hours, then 25% for 1d12 days"
+m6,"75% move for 6 hours, 50% for 2d12 days"
+m7,"75% move for 6 hours, 50% for 4d12 days"
+m8,"75% move for 6 hours, 50% for 1d3 months"
+m9,"75% move for 1 day, 50% for 1d4 months"
+m10,"75% move for 1 week, 50% for d6 months"
+bfX,if spine: (5% x severity level chance of paralysis); if arm/shoulder: (drops carried weapons or items unless check at 1/2 Strength is made); if torso: (30% chance of 1d4 damage; Con check or shock)
+bmX,if spine: (5% x severity level chance of paralysis); if arm/shoulder: (drops carried weapons or items unless check at 1/2 Strength is made); if torso: (30% chance of 1d4 damage; Con check or shock)
+bsX,if spine: (5% x severity level chance of paralysis); if arm/shoulder: (drops carried weapons or items unless check at 1/2 Strength is made); if torso: (30% chance of 1d4 damage; Con check or shock)
+mc,temporarily gains migraines flaw and headache. 3% x severity level chance of seizure disorder flaw
+vX,drops carried weapons or items unless check at 1/2 Strength is made (-10); 1d4 damage/hour; Con check or shock; 3% x severity chance of bleed to death in Con/2 rounds; roll on vital organ damage table
+sc,temporarily gains migraines and short term memory loss flaws. 5% x severity level chance of seizure disorder flaw
+bX,"if spine: (5% x severity level chance of paralysis), if arm/shoulder: (drops carried weapons or items unless check at 1/2 Strength is made), if torso: (15% chance of bleed to death in Con/2 rounds and 15% chance of 1d4 damage/hour; Con check or shock)"
