@@ -1,51 +1,51 @@
-Roll,Location Name,Location ID
-1-100,"Foot, top",1
-101-104,"Heel",2
-105-136,"Toe(s)",3
-137-140,"Foot, arch",4
-141-170,"Ankle, inner",5
-171-200,"Ankle, outer",6
-201-220,"Ankle, upper/Achilles",7
-221-964,"Shin",8
-965-1006,"Calf",9
-1007-1118,"Knee",10
-1119-1132,"Knee, back",11
-1133-1216,"Hamstring",12
-1217-2000,"Thigh",13
-2001-2330,"Hip",14
-2331-2405,"Groin (male only)",15
-2406-2435,"Buttock",16
-2436-2570,"Abdomen, lower",17
-2571-3020,"Side, lower",18
-3021-3110,"Abdomen, upper",19
-3111-3125,"Back, Small of",20
-3126-3155,"Back, lower",21
-3156-3425,"Chest",22
-3426-3455,"Side, upper",23
-3456-3485,"Back, upper",24
-3486-3500,"Back, upper middle",25
-3501-3821,"Armpit",26
-3821-4300,"Arm, upper outer",27
-4301-4492,"Arm, upper inner",28
-4493-4588,"Elbow",29
-4589-4684,"Inner arm joint",30
-4685-5308,"Forearm, back",31
-5309-5836,"Forearm, inner",32
-5837-5908,"Wrist, back",33
-5909-5980,"Wrist, front",34
-5981-6052,"Hand, back",35
-6053-6076,"Palm",36
-6077-6220,"Finger(s)",37
-6221-7180,"Shoulder, side",38
-7181-9100,"Shoulder, top",39
-9101-9121,"Neck, front",40
-9122-9142,"Neck, back",41
-9143-9373,"Neck, side",42
-9374-9653,"Head, side",43
-9654-9688,"Head, back lower",44
-9689-9768,"Face, lower side",45
-9769-9788,"Face, lower center",46
-9789-9823,"Head, back upper",47
-9824-9903,"Face, upper side",48
-9904-9923,"Face, upper center",49
-9924-10000,"Head, top",50
+"ID","Low value","High value",Name
+1,1,100,"Foot, top"
+2,101,104,"Heel"
+3,105,136,"Toe(s)"
+4,137,140,"Foot, arch"
+5,141,170,"Ankle, inner"
+6,171,200,"Ankle, outer"
+7,201,220,"Ankle, upper/Achilles"
+8,221,964,"Shin"
+9,965,1006,"Calf"
+10,1007,1118,"Knee"
+11,1119,1132,"Knee, back"
+12,1133,1216,"Hamstring"
+13,1217,2000,"Thigh"
+14,2001,2330,"Hip"
+15,2331,2405,"Groin (male only)"
+16,2406,2435,"Buttock"
+17,2436,2570,"Abdomen, lower"
+18,2571,3020,"Side, lower"
+19,3021,3110,"Abdomen, upper"
+20,3111,3125,"Back, Small of"
+21,3126,3155,"Back, lower"
+22,3156,3425,"Chest"
+23,3426,3455,"Side, upper"
+24,3456,3485,"Back, upper"
+25,3486,3500,"Back, upper middle"
+26,3501,3821,"Armpit"
+27,3821,4300,"Arm, upper outer"
+28,4301,4492,"Arm, upper inner"
+29,4493,4588,"Elbow"
+30,4589,4684,"Inner arm joint"
+31,4685,5308,"Forearm, back"
+32,5309,5836,"Forearm, inner"
+33,5837,5908,"Wrist, back"
+34,5909,5980,"Wrist, front"
+35,5981,6052,"Hand, back"
+36,6053,6076,"Palm"
+37,6077,6220,"Finger(s)"
+38,6221,7180,"Shoulder, side"
+39,7181,9100,"Shoulder, top"
+40,9101,9121,"Neck, front"
+41,9122,9142,"Neck, back"
+42,9143,9373,"Neck, side"
+43,9374,9653,"Head, side"
+44,9654,9688,"Head, back lower"
+45,9689,9768,"Face, lower side"
+46,9769,9788,"Face, lower center"
+47,9789,9823,"Head, back upper"
+48,9824,9903,"Face, upper side"
+49,9904,9923,"Face, upper center"
+50,9924,10000,"Head, top"
