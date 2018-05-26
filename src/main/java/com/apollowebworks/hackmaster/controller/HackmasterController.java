@@ -24,9 +24,9 @@ public class HackmasterController {
 	}
 
 	@RequestMapping("/hackmaster")
-	public Map<String, Object> randomRoll(@RequestParam(required = false) AttackType type,
-										  @RequestParam(required = false) Integer part,
-										  @RequestParam(required = false) Integer severity) {
+	public Map<String, Object> reportEffect(@RequestParam(required = false) AttackType type,
+											@RequestParam(required = false) Integer part,
+											@RequestParam(required = false) Integer severity) {
 		Map<String, Object> response = new HashMap<>();
 		AttackType finalType = type != null ? type : AttackType.values()[random(AttackType.values().length)];
 		Integer finalPart = part != null ? part : random(MAX_PART);

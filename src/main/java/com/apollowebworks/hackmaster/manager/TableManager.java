@@ -17,7 +17,7 @@ import java.util.stream.Collectors;
 public class TableManager {
 	private static final org.slf4j.Logger LOGGER = LoggerFactory.getLogger(TableManager.class);
 
-	private final Map<AttackType, CritTable> critTables;
+	private final Map<AttackType, List<CritEntry>> critTables;
 	private Map<String, String> effectTable;
 	private final FileManager fileManager;
 
@@ -32,9 +32,9 @@ public class TableManager {
 	}
 
 	public LookupResponse lookup(AttackType type, int locationRoll, int effectRoll) {
-		CritTable critTable = critTables.get(type);
-		CritEntry entry = critTable.lookupEntry(locationRoll);
-		List<Effect> effects = entry.getOutcomes(effectRoll)
+		List<CritEntry> critTable = critTables.get(type);
+		CritEntry entry = lookupEntry(critTable, locationRoll);
+		List<Effect> effects = entry.getEffects().get(effectRoll - 1)
 									.stream()
 									.map(this::translateEffect)
 									.collect(Collectors.toList());
@@ -46,8 +46,11 @@ public class TableManager {
 		return response;
 	}
 
-	public AttackType getType(int i) {
-		return AttackType.values()[i];
+	private CritEntry lookupEntry(List<CritEntry> critTable, int value) {
+		return critTable.stream()
+						.filter(entry -> value >= entry.getLowRoll() && value <= entry.getHighRoll())
+						.findAny()
+						.orElse(null);
 	}
 
 	private Map<String, String> readEffects() {
@@ -87,8 +90,7 @@ public class TableManager {
 				effectTable.get(realKey).replace("X", numberPart) : realKey;
 	}
 
-	private CritTable readCritTable(String... filenames) {
-		CritTable result = new CritTable();
+	private List<CritEntry> readCritTable(String... filenames) {
 		List<String[]> data = fileManager.readFile(filenames[0]);
 		List<CritEntry> entries = data.stream().skip(1).map(this::createCritTableEntry).collect(Collectors.toList());
 
@@ -106,9 +108,7 @@ public class TableManager {
 			}
 		});
 
-		result.setEntries(entries);
-
-		return result;
+		return entries;
 	}
 
 	private CritEntry createCritTableEntry(String[] cells) {

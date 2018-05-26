@@ -1,0 +1,14 @@
+{
+  "severity": 24,
+  "result": {
+    "type": "CRUSHING",
+    "location": "Chest",
+    "effects": [
+      {
+        "key": "body cavity crushed (dead)",
+        "description": "body cavity crushed (dead)"
+      }
+    ]
+  },
+  "part": 3200
+}
