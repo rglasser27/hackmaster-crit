@@ -4,7 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CritEntry {
-	private int lowRoll, highRoll;
+	private int lowRoll;
+	private int highRoll;
 	private String location;
 	private List<List<String>> effects;
 

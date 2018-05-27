@@ -1,0 +1,51 @@
+14,15,16,17,18,19,20,21,22,23,24
+"x2,ib,m5","x2,ib,m6","x2,ib,m6","x2,ib,m7","x2,ib,m7","x2,ib,b1,m7","x2,ib,b1,m8","x2,ib,mt1,m8","x2,ib,mt1,m9","x2,ls,m9","x2,ls,m10"
+"x2,ib,a2,d2,m5","x2,ib,a2,d2,m6","x2,ib,a3,d2,m6","x2,ib,a3,d2,m7","x2,ib,b1,a3,d2,m7","x2,ib,b1,a3,d2,m7","x2,ib,b1,a3,d2,m8","x2,ib,mt1,a3,d2,m8","x2,ib,mt1,a3,d2,m9","x2,ib,ib,a3,d2,m9","x2,ib,ib,a3,d2,m10"
+"x2,ib,m5","x2,ib,m6","x2,ib,b1,m6","x2,ib,b1,m7","x2,ib,b1,m7","x2,ls,m7","x2,ls,m8","x2,ls,m8","x2,ls,m9","x2,ls,m9","x2,ls,m10"
+"x2,b1,a2,d2,m5","x2,b1,a2,d2,m6","x2,b1,a3,d2,m6","x2,b1,a3,d2,m7","x2,b1,a3,d2,m7","x2,b1,a3,d2,m7","x2,b1,a3,d2,m8","x2,mt1,a3,d2,m8","x2,ib,mt1,a3,d2,m9","x2,ls,a3,d2,m9","x2,ls,a3,d2,m10"
+"x2,b1,a2,d2,m5","x2,d3,ib,b1,f,m5","x2,d3,ib,b1,f,m6","x2,d4,ib,b1,f,m7","x2,d5,ib,mt1,f,m7","x2,d5,b1,ib,f,m8","x2,b1,ib,f,m8,d6","x2,d6,b1,ib,f,m9","x2,d6,ls,f,m9","x2,d6,ls,m10,f","x2,d7,ls,m10,f"
+"x2,d3,ib,pb,f,m5","x2,d3,ib,pb,f,m6","x2,d3,ib,pb,b1,f,m6","x2,d4,ib,pb,b1,f,m7","x2,d5,ib,pb,mt2,f,m7","x2,d5,ib,pb,mt2,f,m8","x2,ib,pb,bm1,f,m8,d6","x2,d6,ib,pb,b1,f,m9","x2,d6,ls,f,m9","x2,d6,ls,f,m10","x2,d7,ls,f,m10"
+"x2,d2,f,pb,m5","x2,d2,ib,f,m6","x2,d3,pb,f,m6,ib","x2,d3,pb,b1,f,ib,m7","x2,d4,pb,b1,f,m8,ib","x2,d5,pb,mt1,ib,f,m9","x2,d5,pb,mt2,f,m10,ib","x2,pb,b2,f,m10,d6,ib","x2,d6,pb,b2,f,m10,ib","x2,ls,f,d6,m10","x2,d6,ls,f,m10"
+"x2,d2,f,m2","x2,d2,ib,f,m2","x2,d3,ib,f,m2","x2,d3,ib,b1,f,m3","x2,d4,ib,f,m3","x2,d5,ib,b1,f,m3","x2,d5,ib,pb,b2,f,m3","x2,ib,b2,f,m4,d6","x2,d6,ib,mt1,pb,f,m4","x2,ls,f,d6,m10","x2,d6,ls,m10,f"
+"x2,d2,f,pb,m5","x2,d2,pb,f,m5","x2,d3,f,pb,m6","x2,d3,ib,pb,f,m6","x2,d4,ib,f,pb,m6","x2,d5,b1,pb,f,m6","x2,d5,ib,pb,f,m7","x2,b2,f,pb,d6,m7","x2,d6,ib,pb,mt1,f,m8","x2,ls,f,d6,m10","x2,d6,ls,f,m10"
+"x2,d3,ib,f,m5","x2,d3,ib,b1,f,m5","x2,d3,ib,b1,f,m6","x2,d4,ib,b2,f,m7","x2,d5,ib,b2,f,m7","x2,d5,ib,mt1,f,m8","x2,b3,ib,f,m8,d6","x2,d6,ib,b3,f,m9","x2,d6,ls,f,m10","x2,d6,ls,f,m10","x2,d7,ls,f,m10"
+"x2,d2,ib,f,m5","x2,d3,ib,f,m5","x2,d3,ib,f,m5","x2,d4,ib,f,m6","x2,d5,b1,ib,f,m6","x2,d5,b1,ib,f,m7","x2,mt1,ib,f,m7,d6","x2,d6,mt1,ib,f,m8","x2,b1,ib,f,d6,m8","x2,d6,ls,f,m10","x2,d7,ls,m10,u"
+"x2,d3,ib,f,m5","x2,d3,ib,f,m6","x2,d3,ib,pb,f,m6","x2,d4,ib,f,m6","x2,d5,ib,f,m7","x2,b1,pb,ib,f,m7,d6","x2,d6,ib,pb,b1,f,m8","x2,d6,ls,f,m10","x2,d6,ls,m10,u","x2,d7,ls,f,m10","x3,d8,ls,m10,u"
+"x2,d3,pb,f,m5","x2,d3,b1,f,m6,pb","x2,d3,mt3,pb,f,m6","x2,d4,b1,f,m6,pb","x2,d5,pb,f,m7","pb,x2,mt4,f,m7,d6,pb","x2,d6,b1,f,m8,pb","x2,ls,pb,f,d6,m10","x2,d6,ls,m10,u","x2,d7,ls,m10,u","x3,d8,ls,m10,u"
+"x3,d3,b2,f,m5","x3,d3,ib,v1,b3,f,m6","x3,d3,b3,f,m6","x3,d5,b3,f,m6","x3,d6,b4,f,m7","x3,b4,ib,v1,f,m7,d7","x3,b4,ib,v1,f,m8,d7","x3,ib,v2,f,m8,d8","x3,ib,v2,m9,u,d8","x4,ib,v2,m9,u,d9","x4,ib,v2,m10,u,d9"
+"x3,m4,f,h6","x3,m4,f,h6","x3,m4,f,h5,ib,v1","x3,m4,f,h7,ib,v1","x3,m4,f,h8,ib,v1","x3,m4,f,h9,ib,v2","x3,m5,f,h10,ib,v2","x3,m5,f6,h9,ib,v2,b1","x3,m5,f,h10,ib,v2,b1","x3,m5,f,h10,ib,v2,mt1","x3,m5,f,h10,ib,v2"
+"x3,m3,d2,pb","x3,m3,d2,b1,f","x3,me,d2,pb,f,ib","x3,m3,d2,pb,f,ib","x3,m4,d2,b2,f","x3,m5,d3,b2,f","x3,mt,d3,b3,f","x3,m5,d4,b3,f,pb","x3,m6,d5,b3,f,pb","x4,m7,d6,ib,f","x4,m8,d7,ib,f,pb"
+"x3,ib,v2,f,pb","x3,pb,ib,v3,f","x3,a1,ib,v3,f","x3,a3,ib,v3,f,pb","x3,a3,ib,v3,f","x3,a3,ib,v4,f","x3,a3,pb,ib,v4,f","x3,u,ib,v4,f","x3,b2,ib,v4,u,f","x4,b3,ib,v4,pb,u",run through (dead)
+"x3,a2,pb,w","x3,a2,f","x3,a2,pb,f","x3,a3,pb,f","x3,a3,ib,pb,f","x3,a3,pb,ib,v1,f","x3,a4,b1,f","x3,u,b1,pb","x3,b2,ib,v2,u","x4,b2,ib,v2,pb,u",run through (dead)
+"x3,ib,v2,pb,f","x3,pb,ib,v2,f","x3,a1,ib,v2,f","x3,a2,ib,v2,f,pb","x3,a3,ib,v3,f","x3,a3,ib,v3,f","x3,a3,pb,ib,v3,f","x3,u,ib,v3,f","x3,b1,ib,v3,u","x4,b2,ib,v3,pb,u",run through (dead)
+"x3,ib,v1,pb","x3,pb,ib,v1","x3,b1,ib,v1","x3,b1,ib,v2,f,pb","x3,mt2,ib,v2,f","x3,b1,ib,v2,f","x3,b1,pb,ib,v2,f","x3,ib,v2","x3,ib,v2,u","x4,ib,v2,pb,u",run through (dead)
+"x3,b1,pb,f","x3,b1,ib,v1,f","x3,a1,ib,v1,f","x3,a2,ib,v1,f,b1","x3,a3,ib,v2,b1,f","x3,a3,ib,v2,f","x3,a3,b1,ib,v2,f","x3,u,b1,pb,ib,v2","x3,b1,ib,v2,u","x4,b1,ib,v2,pb,u",run through (dead)
+"x3,ib,v1,b2","x3,pb,ib,v1,b2","x3,mt3,ib,v2","x3,b2,ib,v2,f,pb","x3,mt3,ib,v3,f","x3,b3,ib,v3,f","x3,b3,mt3,ib,v3,f","x3,bf4,pb,ib,v3","x3,bm4,mt3,ib,v3,u","x4,bm4,ib,v3,pb,u",run through (dead)
+"x3,ib,v1,b2,w","x3,b2,ib,v1,w","x3,b2,ib,v1,w","x3,b2,ib,v1,f,w","x3,b2,ib,v1,f,w","x3,b2,ib,v1,f,w","x3,b2,mt2,ib,v1,f,w","x3,bf2,pb,ib,v1","x3,bm2,mt2,ib,v1,u","x4,bm2,ib,v1,pb,u",run through (dead)
+"x3,f,b1","x3,pb,f","x3,ib,v1","x3,b1,f,ib,v1","x3,b1,ib,v1","x3,b2,pb","x3,b2,ib,v1,pb","x3,bf2,ib,v1,u,pb","x3,bm2,ib,v1,pb,u","x4,ib,v1,pb,u",run through (dead)
+"x3,f,b1","x3,pb,f","x3,ib,v1","x3,b1,f,ib,v1","x3,b2,ib,v1","x3,b2,pb","x3,b3,ib,v1,pb","x3,bf3,ib,v1,u,pb","x4,bm3,ib,v1,pb,u","x4,p,ib,v1,u",run through (dead)
+"x3,a3,d1,w","x3,a3,d2,w","x3,a3,d2,pb,w","x3,a3,d2,ib,w","x3,a3,d2,ib,pb,w","x3,a3,d2,mt1,pb,w","x3,a3,d2,b1,pb,w","x3,a3,d2,b2,pb,ib,w","x3,a3,d2,mt2,pb,ib,w","x3,a3,d2,b3,pb,ib,w","x3,a3,d2,ls,w"
+"x2,a3,w","x2,a3,w","x2,a3,pb,w","x2,a3,pb,w","x2,a3,pb,b1,w","x2,a3,mt1,pb,w","x2,a3,b1,pb,w","x2,a4,pb,mt2,w","x2,a4,b1,pb,w","x2,a4,b1,pb,w","x2,a4,ls,w"
+"x2,a3,w","x2,a3,w","x2,a3,pb,w","x2,a3,b1,w","x2,a3,pb,b1,w","x2,a3,mt1,pb,w","x2,a3,b1,pb,w","x2,a4,pb,mt2,w","x2,a4,b1,pb,w","x2,a4,b1,pb,w","x2,a4,ls,w"
+"x2,a3,ib,w","x2,a3,ib,w","x2,a3,ib,w","x2,a4,ib,w","x2,a4,ib,b1,w","x2,a4,ib,b1,w","x2,a4,ib,mt1,w","x2,a5,ib,b1,w","x2,w,a5,bm1","x2,w,a5,bs1","x2,w,a5,ls"
+"x2,a3,ib,w","x2,a3,ib,w","x2,a3,b1,ib,w","x2,a4,ib,b1,w","x2,a4,ib,mt1,w","x2,a4,ib,mt2,w","x2,a4,ib,b2,w","x2,a5,ib,b2,w","x2,w,a5,bm2","x2,w,a5,bs2","x2,w,a5,ls"
+"x2,a3,w","x2,a3,w","x2,a3,pb,w","x2,a3,b1,w","x2,a3,pb,b1,w","x2,a3,mt1,pb,w","x2,a3,b2,pb,w","x2,a4,b2,pb,w","x2,a3,mt2,pb,w","x2,a4,b2,pb,w","x3,a4,ls,w"
+"x2,a3,w","x2,a3,w","x2,a3,pb,w","x2,a3,b1,w","x2,a3,pb,b1,w","x2,a3,mt1,pb,w","x2,a3,b2,pb,w","x2,a4,b2,pb,w","x2,a3,mt2,pb,w","x2,a4,b2,pb,w","x3,a4,ls,w"
+"x2,a3,ib,w","x2,a3,ib,w","x2,a3,b,ib,w","x2,a3,ib,b1,w","x2,w,a3,ib,mt1,w","x2,a3,ib,mt1,w","x2,a3,ib,b1,w","x2,a3,ib,b1,w","x2,w,a3,bm1","x2,w,a3,bs1","x2,w,a3,ls"
+"x2,w,a3,ib","x2,w,a3,ib","x2,w,a3,b1,ib","x2,w,a3,ib,b1","x2,w,a3,ib,mt1","x2,w,a3,ib,mt1","x2,w,a3,ib,b1","x2,w,a3,ib,b1","x2,w,a3,bm1","x2,w,a3,bs1","x2,w,a3,ls"
+"x2,ib,a2","x2,ib,a2,ws","x2,ib,a3,ws","x2,ib,a3,ws","x2,ib,a3,w","x2,ib,b1,a3,w","x2,ib,b1,a3,w","x2,ib,mt1,a3,w","x2,ib,b2,a3,w","x2,a3,bs2,w","x2,ls,a3,w"
+"x2,ib,a2","x2,ib,a2","x2,ib,a2","x2,ib,a2,ws","x2,ib,a3,ws","x2,ib,pb,a3,ws","x2,ib,pb,b1,a3,w","x2,ib,pb,mt1,a3,w","x2,ib,pb,b1,a3,w","x2,a3,bs1,w","x2,ls,a3,w"
+"x2,ib","x2,ib","x2,b1,ib","x2,b1,ib","x2,b1,ib","x2,ls","x2,ls","x2,ls","x2,ls","x2,ls","x2,ls"
+"x2,a3,w","x2,a3,w","x2,a3,pb,w","x2,a3,b1,w","x3,a3,pb,b1,w","x3,a3,mt1,pb,w","x3,a3,b1,pb,w","x3,a4,pb,b1,w","x4,a3,pb,mt2,w","x3,a4,pb,b1,w","x3,a4,ls"
+"x3,a3,d1,w","x3,a3,d2,w","x3,a3,d2,pb,w","x3,a3,d2,ib,w","x3,a3,d2,ib,pb,w","x3,a3,d2,mt1,pb","x3,a3,d2,b1,pb","x3,a3,d2,b2,pb,ib,w","x3,a3,d2,mt2,pb,ib","x3,a3,d2,b3,pb,ib","x3,a3,d2,ls"
+"x3,a3,d3,u,mc","x3,a3,d4,u,p,mc","x3,a3,d2,pb,w","x4,a4,d6,u,sc","x4,a6,p,u,sc","x4,pb,ib,ib,v1","x4,pb,ib,ib,v1","x4,p,u,sc","x4,pb,ib,ib,v2","x4,pb,ib,ib,v2",decapitated (dead)
+"x3,a2,d3,u,mc","x3,a2,d3,u,p,mc","x3,a3,d5,u,mc","x4,a4,d5,b1,u,sc","x4,a5,d6,b1,ib,v1,u,sc","x4,p,b1,u,sc","x4,p,b1,ib,v1,u,sc","x4,p,b1,ib,v1,u,sc","x4,p,ib,v1,bf1,u,sc","x4,pb,bm,ib,v1",decapitated (dead)
+"x3,a2,d3,u,pb","x3,a2,d3,u,pb","x3,a3,d4,u,mc","x4,a4,d5,u,pb,mc","x4,a5,d6,pb,u,sc","x4,p,b1,u,sc","x4,p,b1,ib,v1,u,sc","x4,p,b2,ib,v2,u,sc","x4,p,ib,v2,bf2,u,sc","x4,pb,ib,ib,v2",decapitated (dead)
+"x4,a6,d6,u,sc","x4,a6,d6,u,sc","x3,a3,d4,u,pb","x4,a7,d7,t1,u,sc","x4,a7,d7,t1,u,sc","x4,a8,d8,t2,ib,v2,u,sc","x4,a8,d8,b1,ib,v1,u,sc","x4,a9,d9,b1,ib,v1,u,sc","x4,a9,d9,ib,v1,bf1,u,sc",skull caved-in,brain goo
+"x4,a5,d6,u,sc","x4,a5,d6,u,sc,p","x4,a7,d7,u,sc","x4,a6,d7,t1,u,sc,p","x4,a6,d7,t1,u,sc","x4,a7,d8,t1,ib,v1,u,sc","x4,a7,d8,b1,ib,v1,u,sc","x4,p,b2,ib,v2,u,sc","x4,p,ib,v2,u,sc",skull caved-in,brain goo
+"x4,mt2,a3,d1,u,mc","x4,b1,a4,d2,f,mc","x4,mt2,a5,d3,f,mc","x4,b1,a6,d3,f,mc","x4,mt2,a5,d3,f,mc","x4,b1,a5,d3,f,sc","x4,b2,a6,d4,u,mc","x4,mt2,a6,d4,u,sc","x4,b2,a6,d4,u,sc","x4,ib,a7,d5,u,sc",jaw removed
+"x4,t2,a3,d3,u,mc","x4,t2,a4,d4,f,mc","x4,t2,a5,d5,f,mc","x4,b1,a5,d5,f,mc","x4,b1,a5,d5,f,mc","x4,b2,a5,d5,f,sc","x4,b2,a5,d5,u,sc","x4,b3,a5,d5,u,sc","x4,ib,v1,a5,d5,u,sc","x4,ib,v1,a5,d5,u,sc",skull caved-in
+"x4,a6,d6,u,sc","x4,a6,d6,u,sc","x4,a7,d7,u,sc","x4,a7,d7,mt1,u,sc","x4,a7,d7,mt1,u,sc","x4,a8,d8,mt1,ib,v1,u,sc","x4,a8,d8,b1,ib,v1,u,sc","x4,a9,d9,b1,ib,v1,u,sc","x4,a9,d9,ib,v1,bf1,u,sc",skull caved-in,brain goo
+"x4,a6,d6,u,sc","x4,a6,d6,u,sc","x4,a7,d7,u,sc","x4,a7,d7,mt1,u,sc","x4,a7,d7,mt1,u,sc","x4,a7,d7,mt1,ib,v1,u,sc","x4,a8,d8,b1,ib,v1,u,sc","x4,a8d8,b2,ib,v1,u,sc","x4,a9,d9,ib,v1,bf2,u,sc",skull caved-in,brain goo
+"x4,a6,d6,u,sc","x4,a6,d6,u,sc","x4,a7,d7,u,sc","x4,a7,d7,mt1,u,sc","x4,a7,d7,mt1,u,sc","x4,a8,d8,mt2,ib,v1,u,sc","x4,a8,d8,b1,ib,v1,u,sc","x4,a9,d9,b2,ib,v1,u,sc","x4,a9,d9,ib,v1,bf3,u,sc",skull caved-in,brain goo
+"x4,a6,d6,u,sc","x4,a7,d7,u,sc","x4,a7,d7,t1,u,sc","x4,a7,d7,mt1,u,sc","x4,a8,d8,mt1,ib,v1,u,sc","x4,a8,d8,b1,ib,v1,u,sc","x4,a9,d9,b1,ib,v1,u,sc","x4,a9,d9,ib,v1,bf1,u,sc",skull caved-in,brain goo,brain goo

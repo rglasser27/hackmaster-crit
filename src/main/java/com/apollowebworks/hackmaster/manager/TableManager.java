@@ -17,12 +17,14 @@ import java.util.stream.Collectors;
 public class TableManager {
 	private static final org.slf4j.Logger LOGGER = LoggerFactory.getLogger(TableManager.class);
 
-	private final Map<AttackType, List<CritEntry>> critTables;
+	private final Map<AttackType, List<List<List<String>>>> critTables;
 	private Map<String, String> effectTable;
 	private final FileManager fileManager;
+	private final List<BodyPart> bodyParts;
 
 	@Autowired
 	TableManager(FileManager fileManager) {
+		bodyParts = fileManager.readFile("bodyparts", BodyPart.class, "id", "lowRoll", "highRoll", "name");
 		this.fileManager = fileManager;
 		critTables = new HashMap<>();
 		critTables.put(AttackType.HACKING, readCritTable("hacking1", "hacking2"));
@@ -32,26 +34,36 @@ public class TableManager {
 	}
 
 	public LookupResponse lookup(AttackType type, int locationRoll, int effectRoll) {
-		List<CritEntry> critTable = critTables.get(type);
-		CritEntry entry = lookupEntry(critTable, locationRoll);
-		List<Effect> effects = entry.getEffects().get(effectRoll - 1)
-									.stream()
-									.map(this::translateEffect)
-									.collect(Collectors.toList());
+		BodyPart bodyPart = getBodyPart(locationRoll);
+		List<List<String>> row = critTables.get(type).get(bodyPart.getId());
+//		CritEntry entry = lookupEntry(type, locationRoll);
+		List<Effect> effects = row.get(effectRoll - 1)
+								  .stream()
+								  .map(this::translateEffect)
+								  .collect(Collectors.toList());
 
 		LookupResponse response = new LookupResponse();
 		response.setType(type);
-		response.setLocation(entry.getLocation());
+		response.setLocation(bodyPart.getName());
 		response.setEffects(effects);
 		return response;
 	}
 
-	private CritEntry lookupEntry(List<CritEntry> critTable, int value) {
-		return critTable.stream()
+	private BodyPart getBodyPart(int value) {
+		return bodyParts.stream()
 						.filter(entry -> value >= entry.getLowRoll() && value <= entry.getHighRoll())
 						.findAny()
 						.orElse(null);
 	}
+
+//	private CritEntry lookupEntry(AttackType type, int value) {
+//		List<List<List<String>>> critTable = critTables.get(type);
+//		List<List<List<String>>> critTable
+//		return critTable.stream()
+//						.filter(entry -> value >= entry.getLowRoll() && value <= entry.getHighRoll())
+//						.findAny()
+//						.orElse(null);
+//	}
 
 	private Map<String, String> readEffects() {
 		List<String[]> effects = fileManager.readFile("effects");
@@ -90,19 +102,18 @@ public class TableManager {
 				effectTable.get(realKey).replace("X", numberPart) : realKey;
 	}
 
-	private List<CritEntry> readCritTable(String... filenames) {
+	private List<List<List<String>>> readCritTable(String... filenames) {
 		List<String[]> data = fileManager.readFile(filenames[0]);
-		List<CritEntry> entries = data.stream().skip(1).map(this::createCritTableEntry).collect(Collectors.toList());
+		List<List<List<String>>> entries = data.stream().map(this::createCritTableEntry).collect(Collectors.toList());
 
 		// Add more data from extra files
 		Arrays.stream(filenames).skip(1).forEach(filename -> {
 			List<String[]> data2 = fileManager.readFile(filename);
 			List<List<List<String>>> moreEffects = data2.stream()
-														.skip(1)
 														.map(line -> readEffects(0, line))
 														.collect(Collectors.toList());
 			for (int i = 0; i < entries.size(); i++) {
-				List<List<String>> originalEffects = entries.get(i).getEffects();
+				List<List<String>> originalEffects = entries.get(i);
 				List<List<String>> newEffects = moreEffects.get(i);
 				originalEffects.addAll(newEffects);
 			}
@@ -111,26 +122,24 @@ public class TableManager {
 		return entries;
 	}
 
-	private CritEntry createCritTableEntry(String[] cells) {
-		if (cells.length < 3) {
-			LOGGER.debug("Bad row detected, not enough columns (need at least 3)");
-			return null;
-		}
+	private List<List<String>> createCritTableEntry(String[] cells) {
+//		if (cells.length < 3) {
+//			LOGGER.debug("Bad row detected, not enough columns (need at least 3)");
+//			return null;
+//		}
 
 		String[] parts = cells[0].split("-");
 
-		CritEntry result = new CritEntry();
-		result.setLowRoll(Integer.parseInt(parts[0]));
-		result.setHighRoll(Integer.parseInt(parts[1]));
-		result.setLocation(cells[1]);
-		result.setEffects(readEffects(2, cells));
+//		result.setLowRoll(Integer.parseInt(parts[0]));
+//		result.setHighRoll(Integer.parseInt(parts[1]));
+//		result.setLocation(cells[1]);
+//		result.setEffects();
 
-		return result;
+		return readEffects(2, cells);
 	}
 
 	private List<List<String>> readEffects(int numToSkip, String[] cells) {
 		return Arrays.stream(cells)
-					 .skip(numToSkip)
 					 .map(cell -> Arrays.asList(cell.split(",")))
 					 .collect(Collectors.toList());
 	}
