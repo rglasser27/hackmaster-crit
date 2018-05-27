@@ -24,7 +24,7 @@ public class TableManager {
 
 	@Autowired
 	TableManager(FileManager fileManager) {
-		bodyParts = fileManager.readFile("bodyparts", BodyPart.class, "id", "lowRoll", "highRoll", "name");
+		bodyParts = fileManager.readBodyPartFile();
 		this.fileManager = fileManager;
 		critTables = new HashMap<>();
 		critTables.put(AttackType.HACKING, readCritTable("hacking1", "hacking2"));
@@ -36,7 +36,6 @@ public class TableManager {
 	public LookupResponse lookup(AttackType type, int locationRoll, int effectRoll) {
 		BodyPart bodyPart = getBodyPart(locationRoll);
 		List<List<String>> row = critTables.get(type).get(bodyPart.getId());
-//		CritEntry entry = lookupEntry(type, locationRoll);
 		List<Effect> effects = row.get(effectRoll - 1)
 								  .stream()
 								  .map(this::translateEffect)
@@ -44,7 +43,7 @@ public class TableManager {
 
 		LookupResponse response = new LookupResponse();
 		response.setType(type);
-		response.setLocation(bodyPart.getName());
+		response.setBodyPart(bodyPart);
 		response.setEffects(effects);
 		return response;
 	}
@@ -56,17 +55,8 @@ public class TableManager {
 						.orElse(null);
 	}
 
-//	private CritEntry lookupEntry(AttackType type, int value) {
-//		List<List<List<String>>> critTable = critTables.get(type);
-//		List<List<List<String>>> critTable
-//		return critTable.stream()
-//						.filter(entry -> value >= entry.getLowRoll() && value <= entry.getHighRoll())
-//						.findAny()
-//						.orElse(null);
-//	}
-
 	private Map<String, String> readEffects() {
-		List<String[]> effects = fileManager.readFile("effects");
+		List<String[]> effects = fileManager.readStringArrayFile("effects");
 		return effects.stream().skip(2).collect(Collectors.toMap(vals -> vals[0], vals -> vals[1]));
 	}
 
@@ -103,42 +93,25 @@ public class TableManager {
 	}
 
 	private List<List<List<String>>> readCritTable(String... filenames) {
-		List<String[]> data = fileManager.readFile(filenames[0]);
-		List<List<List<String>>> entries = data.stream().map(this::createCritTableEntry).collect(Collectors.toList());
+		List<String[]> data = fileManager.readStringArrayFile(filenames[0]);
+		List<List<List<String>>> entries = data.stream().map(this::readEffects).collect(Collectors.toList());
 
 		// Add more data from extra files
 		Arrays.stream(filenames).skip(1).forEach(filename -> {
-			List<String[]> data2 = fileManager.readFile(filename);
+			List<String[]> data2 = fileManager.readStringArrayFile(filename);
 			List<List<List<String>>> moreEffects = data2.stream()
-														.map(line -> readEffects(0, line))
+														.map(this::readEffects)
 														.collect(Collectors.toList());
 			for (int i = 0; i < entries.size(); i++) {
 				List<List<String>> originalEffects = entries.get(i);
-				List<List<String>> newEffects = moreEffects.get(i);
-				originalEffects.addAll(newEffects);
+				originalEffects.addAll(moreEffects.get(i));
 			}
 		});
 
 		return entries;
 	}
 
-	private List<List<String>> createCritTableEntry(String[] cells) {
-//		if (cells.length < 3) {
-//			LOGGER.debug("Bad row detected, not enough columns (need at least 3)");
-//			return null;
-//		}
-
-		String[] parts = cells[0].split("-");
-
-//		result.setLowRoll(Integer.parseInt(parts[0]));
-//		result.setHighRoll(Integer.parseInt(parts[1]));
-//		result.setLocation(cells[1]);
-//		result.setEffects();
-
-		return readEffects(2, cells);
-	}
-
-	private List<List<String>> readEffects(int numToSkip, String[] cells) {
+	private List<List<String>> readEffects(String[] cells) {
 		return Arrays.stream(cells)
 					 .map(cell -> Arrays.asList(cell.split(",")))
 					 .collect(Collectors.toList());

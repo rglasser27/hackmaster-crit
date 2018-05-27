@@ -39,18 +39,23 @@ http://localhost:8080/hackmaster?&type=HACKING&severity=1&part=1
 Response:
 ```json
 {
-  "severity": 24,
+  "severity": 1,
   "result": {
-    "type": "CRUSHING",
-    "location": "Chest",
+    "type": "HACKING",
+    "bodyPart": {
+      "id": 1,
+      "lowRoll": 1,
+      "highRoll": 100,
+      "name": "Foot, top"
+    },
     "effects": [
       {
-        "key": "body cavity crushed (dead)",
-        "description": "body cavity crushed (dead)"
+        "key": "1",
+        "description": "take 1 damage"
       }
     ]
   },
-  "part": 3400
+  "part": 1
 }
 ```
 
@@ -65,7 +70,12 @@ Response:
   "severity": 24,
   "result": {
     "type": "CRUSHING",
-    "location": "Chest",
+    "bodyPart": {
+      "id": 22,
+      "lowRoll": 3156,
+      "highRoll": 3425,
+      "name": "Chest"
+    },
     "effects": [
       {
         "key": "body cavity crushed (dead)",

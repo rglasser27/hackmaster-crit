@@ -4,7 +4,7 @@ import java.util.List;
 
 public class LookupResponse {
 	private AttackType type;
-	private String location;
+	private BodyPart bodyPart;
 	private List<Effect> effects;
 
 	public AttackType getType() {
@@ -15,12 +15,12 @@ public class LookupResponse {
 		this.type = type;
 	}
 
-	public String getLocation() {
-		return location;
+	public BodyPart getBodyPart() {
+		return bodyPart;
 	}
 
-	public void setLocation(String location) {
-		this.location = location;
+	public void setBodyPart(BodyPart bodyPart) {
+		this.bodyPart = bodyPart;
 	}
 
 	public List<Effect> getEffects() {
