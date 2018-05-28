@@ -5,12 +5,14 @@ import com.apollowebworks.hackmaster.model.BodyPart;
 import com.apollowebworks.hackmaster.model.Effect;
 import com.apollowebworks.hackmaster.model.LookupResponse;
 import org.slf4j.LoggerFactory;
-import org.springframework.batch.item.ExecutionContext;
-import org.springframework.batch.item.file.FlatFileItemReader;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
@@ -95,32 +97,14 @@ public class TableManager {
 	}
 
 	private List<List<List<String>>> readCritTable(String filename1, String filename2) {
-		FlatFileItemReader<String[]> reader = fileManager.getStringArrayReader(filename1);
-		FlatFileItemReader<String[]> reader2 = fileManager.getStringArrayReader(filename2);
-		ExecutionContext executionContext = new ExecutionContext();
+		List<String[]> data1 = fileManager.readStringArrayFile(filename1);
+		List<String[]> data2 = fileManager.readStringArrayFile(filename2);
 		List<List<List<String>>> response = new ArrayList<>();
-
-		try {
-			reader.open(executionContext);
-			reader2.open(executionContext);
-			do {
-				try {
-					String[] strings1 = reader.read();
-					String[] strings2 = reader2.read();
-					if (strings1 == null || strings2 == null) {
-						break;
-					}
-					List<List<String>> line = new ArrayList<>();
-					line.addAll(readEffects(strings1));
-					line.addAll(readEffects(strings2));
-					response.add(line);
-				} catch (Exception e) {
-					LOGGER.error("Could not read file", e);
-				}
-			} while (true);
-		} finally {
-			reader.close();
-			reader2.close();
+		for (int i = 0; i < data1.size(); i++) {
+			List<List<String>> line = new ArrayList<>();
+			line.addAll(readEffects(data1.get(i)));
+			line.addAll(readEffects(data2.get(i)));
+			response.add(line);
 		}
 		return response;
 	}

@@ -8,11 +8,11 @@ import org.springframework.batch.item.file.mapping.ArrayFieldSetMapper;
 import org.springframework.batch.item.file.mapping.BeanWrapperFieldSetMapper;
 import org.springframework.batch.item.file.mapping.DefaultLineMapper;
 import org.springframework.batch.item.file.transform.DelimitedLineTokenizer;
-import org.springframework.batch.item.file.transform.LineTokenizer;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
@@ -21,33 +21,38 @@ class FileManager {
 	private static final org.slf4j.Logger LOGGER = LoggerFactory.getLogger(FileManager.class);
 
 	List<BodyPart> readBodyPartFile() {
-		FlatFileItemReader<BodyPart> itemReader = getBodyPartReader();
-		return readFile(itemReader);
+		DefaultLineMapper<BodyPart> lineMapper = new DefaultLineMapper<>();
+		DelimitedLineTokenizer tokenizer = new DelimitedLineTokenizer();
+		tokenizer.setNames("id", "lowRoll", "highRoll", "name");
+		lineMapper.setLineTokenizer(tokenizer);
+		try {
+			return readFile(getBodyPartReader(lineMapper));
+		} catch (Exception e) {
+			LOGGER.error("Could not read body part file", e);
+			return Collections.emptyList();
+		}
 	}
 
 	List<String[]> readStringArrayFile(String filename) {
-		FlatFileItemReader<String[]> itemReader = getStringArrayReader(filename);
-		return readFile(itemReader);
+		try {
+			return readFile(getStringArrayReader(filename));
+		} catch (Exception e) {
+			LOGGER.error("Could not read string array file", e);
+			return Collections.emptyList();
+		}
 	}
 
-	private <T> List<T> readFile(FlatFileItemReader<T> itemReader) {
+	private <T> List<T> readFile(FlatFileItemReader<T> itemReader) throws Exception {
 		try {
 			itemReader.open(new ExecutionContext());
-
-			boolean done = false;
 			List<T> response = new ArrayList<>();
-			while (!done) {
-				try {
-					T line = itemReader.read();
-					if (line == null) {
-						done = true;
-					} else {
-						response.add(line);
-					}
-				} catch (Exception e) {
-					LOGGER.error("Could not read file", e);
+			T line;
+			do {
+				line = itemReader.read();
+				if (line != null) {
+					response.add(line);
 				}
-			}
+			} while (line != null);
 			return response;
 		} finally {
 			itemReader.close();
@@ -59,14 +64,7 @@ class FileManager {
 		return Objects.requireNonNull(classLoader.getResource("data/" + filename + ".csv")).getFile();
 	}
 
-
-	private FlatFileItemReader<BodyPart> getBodyPartReader() {
-		DefaultLineMapper<BodyPart> lineMapper = new DefaultLineMapper<>();
-		lineMapper.setLineTokenizer(createTokenizer("id", "lowRoll", "highRoll", "name"));
-		return getBodyPartReader(lineMapper);
-	}
-
-	FlatFileItemReader<String[]> getStringArrayReader(String shortFileName) {
+	private FlatFileItemReader<String[]> getStringArrayReader(String shortFileName) {
 		DefaultLineMapper<String[]> lineMapper = new DefaultLineMapper<>();
 		lineMapper.setLineTokenizer(new DelimitedLineTokenizer());
 		String filename = getCsvFile(shortFileName);
@@ -89,13 +87,5 @@ class FileManager {
 		lineMapper.setFieldSetMapper(fieldMapper);
 		itemReader.setLineMapper(lineMapper);
 		return itemReader;
-	}
-
-	private LineTokenizer createTokenizer(String... names) {
-		DelimitedLineTokenizer lineTokenizer = new DelimitedLineTokenizer();
-		if (names.length > 0) {
-			lineTokenizer.setNames(names);
-		}
-		return lineTokenizer;
 	}
 }
