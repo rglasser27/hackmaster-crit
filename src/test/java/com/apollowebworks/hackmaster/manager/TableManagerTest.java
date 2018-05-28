@@ -20,7 +20,7 @@ public class TableManagerTest {
 
 	@Before
 	public void setUp() {
-		TableManager tableManager = new TableManager(fileManager);
+//		TableManager tableManager = new TableManager(fileManager);
 	}
 
 	@Test

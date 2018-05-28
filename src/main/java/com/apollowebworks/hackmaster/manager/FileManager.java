@@ -32,7 +32,6 @@ class FileManager {
 
 	private <T> List<T> readFile(FlatFileItemReader<T> itemReader) {
 		try {
-			itemReader.setLinesToSkip(1);
 			itemReader.open(new ExecutionContext());
 
 			boolean done = false;
@@ -60,7 +59,14 @@ class FileManager {
 		return Objects.requireNonNull(classLoader.getResource("data/" + filename + ".csv")).getFile();
 	}
 
-	private FlatFileItemReader<String[]> getStringArrayReader(String shortFileName) {
+
+	private FlatFileItemReader<BodyPart> getBodyPartReader() {
+		DefaultLineMapper<BodyPart> lineMapper = new DefaultLineMapper<>();
+		lineMapper.setLineTokenizer(createTokenizer("id", "lowRoll", "highRoll", "name"));
+		return getBodyPartReader(lineMapper);
+	}
+
+	FlatFileItemReader<String[]> getStringArrayReader(String shortFileName) {
 		DefaultLineMapper<String[]> lineMapper = new DefaultLineMapper<>();
 		lineMapper.setLineTokenizer(new DelimitedLineTokenizer());
 		String filename = getCsvFile(shortFileName);
@@ -72,17 +78,12 @@ class FileManager {
 		return itemReader;
 	}
 
-	private FlatFileItemReader<BodyPart> getBodyPartReader() {
-		DefaultLineMapper<BodyPart> lineMapper = new DefaultLineMapper<>();
-		lineMapper.setLineTokenizer(createTokenizer("id", "lowRoll", "highRoll", "name"));
-		return getBodyPartReader(lineMapper);
-	}
-
 	private FlatFileItemReader<BodyPart> getBodyPartReader(DefaultLineMapper<BodyPart> lineMapper) {
 		String filename = getCsvFile("bodyparts");
 		FileSystemResource resource = new FileSystemResource(filename);
 		FlatFileItemReader<BodyPart> itemReader = new FlatFileItemReader<>();
 		itemReader.setResource(resource);
+		itemReader.setLinesToSkip(1);
 		final BeanWrapperFieldSetMapper<BodyPart> fieldMapper = new BeanWrapperFieldSetMapper<>();
 		fieldMapper.setTargetType(BodyPart.class);
 		lineMapper.setFieldSetMapper(fieldMapper);
