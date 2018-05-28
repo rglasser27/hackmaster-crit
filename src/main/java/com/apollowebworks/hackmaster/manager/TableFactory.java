@@ -14,6 +14,13 @@ import java.util.stream.Collectors;
 
 @Component
 public class TableFactory {
+	private static final String HACKING_1 = "hacking1";
+	private static final String HACKING_2 = "hacking2";
+	private static final String CRUSHING_1 = "crushing1";
+	private static final String PIERCING_1 = "piercing1";
+	private static final String CRUSHING_2 = "crushing2";
+	private static final String PIERCING_2 = "piercing2";
+
 	private final FileManager fileManager;
 
 	@Autowired
@@ -23,9 +30,9 @@ public class TableFactory {
 
 	public Map<AttackType, List<List<List<String>>>> createCritTables() {
 		Map<AttackType, List<List<List<String>>>> critTables = new HashMap<>();
-		critTables.put(AttackType.HACKING, readCritTable("hacking1", "hacking2"));
-		critTables.put(AttackType.CRUSHING, readCritTable("crushing1", "crushing2"));
-		critTables.put(AttackType.PIERCING, readCritTable("piercing1", "piercing2"));
+		critTables.put(AttackType.HACKING, readCritTable(HACKING_1, HACKING_2));
+		critTables.put(AttackType.CRUSHING, readCritTable(CRUSHING_1, CRUSHING_2));
+		critTables.put(AttackType.PIERCING, readCritTable(PIERCING_1, PIERCING_2));
 		return critTables;
 	}
 

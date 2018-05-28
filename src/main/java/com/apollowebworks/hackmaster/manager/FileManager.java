@@ -23,10 +23,14 @@ class FileManager {
 	List<BodyPart> readBodyPartFile() {
 		DefaultLineMapper<BodyPart> lineMapper = new DefaultLineMapper<>();
 		DelimitedLineTokenizer tokenizer = new DelimitedLineTokenizer();
-		tokenizer.setNames("id", "lowRoll", "highRoll", "name");
+		tokenizer.setNames("lowRoll", "highRoll", "name");
 		lineMapper.setLineTokenizer(tokenizer);
 		try {
-			return readFile(getBodyPartReader(lineMapper));
+			List<BodyPart> bodyParts = readFile(getBodyPartReader(lineMapper));
+			for (int i = 0; i < bodyParts.size(); i ++) {
+				bodyParts.get(i).setId(i);
+			}
+			return bodyParts;
 		} catch (Exception e) {
 			LOGGER.error("Could not read body part file", e);
 			return Collections.emptyList();
@@ -71,6 +75,7 @@ class FileManager {
 		FileSystemResource resource = new FileSystemResource(filename);
 		FlatFileItemReader<String[]> itemReader = new FlatFileItemReader<>();
 		itemReader.setResource(resource);
+		itemReader.setLinesToSkip(1);
 		lineMapper.setFieldSetMapper(new ArrayFieldSetMapper());
 		itemReader.setLineMapper(lineMapper);
 		return itemReader;

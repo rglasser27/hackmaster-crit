@@ -33,7 +33,7 @@ public class TableManager {
 
 	public LookupResponse lookup(AttackType type, int locationRoll, int effectRoll) {
 		BodyPart bodyPart = getBodyPart(locationRoll);
-		List<List<String>> row = critTables.get(type).get(bodyPart.getId() - 1);
+		List<List<String>> row = critTables.get(type).get(bodyPart.getId());
 		List<Effect> effects = row.get(effectRoll - 1)
 								  .stream()
 								  .map(this::translateEffect)
