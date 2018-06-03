@@ -9,14 +9,14 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
 
 @SpringBootApplication
 @EnableAutoConfiguration
-public class HackmasterApplication extends SpringBootServletInitializer {
+public class HackmasterApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(HackmasterConfig.class, args);
 	}
 
-	@Override
-	protected final SpringApplicationBuilder configure(final SpringApplicationBuilder application) {
-		return application.sources(HackmasterConfig.class);
-	}
+//	@Override
+//	protected final SpringApplicationBuilder configure(final SpringApplicationBuilder application) {
+//		return application.sources(HackmasterConfig.class);
+//	}
 }

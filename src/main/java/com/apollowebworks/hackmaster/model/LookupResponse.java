@@ -30,4 +30,13 @@ public class LookupResponse {
 	public void setEffects(List<Effect> effects) {
 		this.effects = effects;
 	}
+
+	@Override
+	public String toString() {
+		return "LookupResponse{" +
+				"type=" + type +
+				", bodyPart=" + bodyPart +
+				", effects=" + effects +
+				'}';
+	}
 }

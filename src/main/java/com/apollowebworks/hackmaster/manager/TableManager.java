@@ -3,6 +3,7 @@ package com.apollowebworks.hackmaster.manager;
 import com.apollowebworks.hackmaster.model.AttackType;
 import com.apollowebworks.hackmaster.model.BodyPart;
 import com.apollowebworks.hackmaster.model.Effect;
+import com.apollowebworks.hackmaster.model.LookupRequest;
 import com.apollowebworks.hackmaster.model.LookupResponse;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,9 @@ import java.util.stream.Collectors;
 public class TableManager {
 	private static final org.slf4j.Logger LOGGER = LoggerFactory.getLogger(TableManager.class);
 
+	private static final int MAX_PART = 10000;
+	private static final int MAX_SEVERITY = 24;
+
 	private final Map<AttackType, List<List<List<String>>>> critTables;
 	private Map<String, String> effectTable;
 	private final List<BodyPart> bodyParts;
@@ -29,6 +33,18 @@ public class TableManager {
 		this.bodyParts = bodyParts;
 		this.critTables = critTables;
 		this.effectTable = effectTable;
+	}
+
+	public void update(LookupRequest lookupRequest) {
+		if (lookupRequest.getType() == null) {
+			lookupRequest.setType(AttackType.values()[random(AttackType.values().length)]);
+		}
+		if (lookupRequest.getPart() == null) {
+			lookupRequest.setPart(random(MAX_PART));
+		}
+		if (lookupRequest.getSeverity() == null) {
+			lookupRequest.setSeverity(random(MAX_SEVERITY));
+		}
 	}
 
 	public LookupResponse lookup(AttackType type, int locationRoll, int effectRoll) {
@@ -44,6 +60,10 @@ public class TableManager {
 		response.setBodyPart(bodyPart);
 		response.setEffects(effects);
 		return response;
+	}
+
+	public LookupResponse lookup(LookupRequest lookupRequest) {
+		return lookup(lookupRequest.getType(), lookupRequest.getPart(), lookupRequest.getSeverity());
 	}
 
 	private BodyPart getBodyPart(int value) {
@@ -84,4 +104,9 @@ public class TableManager {
 		return effectTable.get(realKey) != null ?
 				effectTable.get(realKey).replace("X", numberPart) : realKey;
 	}
+
+	private int random(int highest) {
+		return (int) Math.floor(Math.random() * highest);
+	}
+
 }

@@ -1,0 +1,15 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="ISO-8859-1"/>
+    <title>Hackmaster</title>
+</head>
+
+<body>
+
+<p>You got hit in the <span th:text="${response.response.bodyPart.name}"></span>. Ouch!</p>
+
+</body>
+</html>

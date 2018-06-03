@@ -2,6 +2,7 @@ package com.apollowebworks.hackmaster.controller;
 
 import com.apollowebworks.hackmaster.manager.TableManager;
 import com.apollowebworks.hackmaster.model.AttackType;
+import com.apollowebworks.hackmaster.model.LookupRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -13,8 +14,6 @@ import java.util.Map;
 @RestController
 public class HackmasterRestController {
 
-	private static final int MAX_PART = 10000;
-	private static final int MAX_SEVERITY = 24;
 
 	private final TableManager tableManager;
 
@@ -24,17 +23,12 @@ public class HackmasterRestController {
 	}
 
 	@RequestMapping("/api/hackmaster")
-	public Map<String, Object> reportEffect(@RequestParam(required = false) AttackType type,
-											@RequestParam(required = false) Integer part,
-											@RequestParam(required = false) Integer severity) {
-		Map<String, Object> response = new HashMap<>();
-		AttackType finalType = type != null ? type : AttackType.values()[random(AttackType.values().length)];
-		Integer finalPart = part != null ? part : random(MAX_PART);
-		Integer finalSeverity = severity != null ? severity : random(MAX_SEVERITY);
+	public Map<String, Object> reportEffect(LookupRequest lookupRequest) {
 
-		response.put("part", finalPart);
-		response.put("severity", finalSeverity);
-		response.put("lookupResponse", tableManager.lookup(finalType, finalPart, finalSeverity));
+		HashMap<String, Object> response = new HashMap<>();
+		tableManager.update(lookupRequest);
+		response.put("request", lookupRequest);
+		response.put("response", tableManager.lookup(lookupRequest));
 		return response;
 	}
 

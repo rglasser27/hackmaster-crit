@@ -19,4 +19,12 @@ public class Effect {
 	public void setDescription(String description) {
 		this.description = description;
 	}
+
+	@Override
+	public String toString() {
+		return "Effect{" +
+				"key='" + key + '\'' +
+				", description='" + description + '\'' +
+				'}';
+	}
 }

@@ -14,6 +14,7 @@ import java.util.Map;
 @Configuration
 @ComponentScan
 public class HackmasterConfig {
+
 	@Bean
 	@Autowired
 	public Map<AttackType, List<List<List<String>>>> critTables(TableFactory tableFactory) {
