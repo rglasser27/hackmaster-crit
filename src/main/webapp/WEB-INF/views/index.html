@@ -9,7 +9,16 @@
 
 <body>
 
-<p>You got hit in the <span th:text="${response.response.bodyPart.name}"></span>. Ouch!</p>
+<h2>Rolls</h2>
+Attack Type: <span th:text="${lookup.request.type}"></span><br>
+Body part: <span th:text="${lookup.request.part}"></span><br>
+Severity: <span th:text="${lookup.request.severity}"></span>
+
+<h2>Results</h2>
+<p>You got hit in the <span th:text="${lookup.response.bodyPart.name}"></span>, and then:</p>
+<ul>
+    <li th:each="effect:${lookup.response.effects}" th:text="${effect.description}"></li>
+</ul>
 
 </body>
 </html>

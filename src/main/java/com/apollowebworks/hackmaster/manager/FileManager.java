@@ -23,7 +23,7 @@ class FileManager {
 	List<BodyPart> readBodyPartFile() {
 		DefaultLineMapper<BodyPart> lineMapper = new DefaultLineMapper<>();
 		DelimitedLineTokenizer tokenizer = new DelimitedLineTokenizer();
-		tokenizer.setNames("lowRoll", "highRoll", "name");
+		tokenizer.setNames("id", "lowRoll", "highRoll", "name");
 		lineMapper.setLineTokenizer(tokenizer);
 		try {
 			List<BodyPart> bodyParts = readFile(getBodyPartReader(lineMapper));

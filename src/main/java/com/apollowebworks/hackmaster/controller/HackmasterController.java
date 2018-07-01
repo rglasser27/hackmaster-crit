@@ -22,8 +22,8 @@ public class HackmasterController {
 		this.tableManager = tableManager;
 	}
 
-	@ModelAttribute("response")
-	public Map<String, Object> reportEffect(@ModelAttribute LookupRequest lookupRequest) {
+	@ModelAttribute("lookup")
+	public Map<String, Object> lookup(@ModelAttribute LookupRequest lookupRequest) {
 		HashMap<String, Object> response = new HashMap<>();
 		tableManager.update(lookupRequest);
 		response.put("request", lookupRequest);

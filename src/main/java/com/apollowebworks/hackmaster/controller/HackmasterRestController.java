@@ -31,8 +31,4 @@ public class HackmasterRestController {
 		response.put("response", tableManager.lookup(lookupRequest));
 		return response;
 	}
-
-	private int random(int highest) {
-		return (int) Math.floor(Math.random() * highest);
-	}
 }

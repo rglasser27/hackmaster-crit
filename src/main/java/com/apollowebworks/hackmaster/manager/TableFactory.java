@@ -42,7 +42,7 @@ public class TableFactory {
 
 	public Map<String, String> createEffectsReference() {
 		List<String[]> effects = fileManager.readStringArrayFile("effects");
-		return effects.stream().skip(2).collect(Collectors.toMap(vals -> vals[0], vals -> vals[1]));
+		return effects.stream().skip(1).collect(Collectors.toMap(vals -> vals[0], vals -> vals[1]));
 	}
 
 	private List<List<List<String>>> readCritTable(String filename1, String filename2) {
